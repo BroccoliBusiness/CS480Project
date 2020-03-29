@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPU Scheduler</title>
+    <script src="process.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <div>
+        <h1>CPU Scheduler</h1>
+        <div>
+          <strong>Please select queuing algorithm:</strong>
+          <form id="algorithm">
+            <input type="radio" name="algorithm" value="fcfs" checked/> First Come First Serve<br/>
+            <input type="radio" name="algorithm" value="sjf"/> Shortest Job First<br/>
+          </form>
+          <br>
+        </div>
+        <strong>Please enter processes information:</strong>
+        <br>
+          <table id="inputTable">
+              <tr>
+                  <th>Process</th>
+                  <th>Arrival Time</th>
+                  <th>Burst Time</th>
+                  <th class="turntime">Turnaround Time</th>
+              </tr>
+              <tr>
+                  <td>P0</td>
+                  <td>0</td>
+                  <td><input class="initial bursttime" type="text" /></td>
+                  <td class="turntime"></td>
+              </tr>
+              <tr>
+                  <td>P1</td>
+                  <td>1</td>
+                  <td><input class="initial bursttime" /></td>
+                  <td class="turntime"></td>
+              </tr>
+          </table>
+          </div>
+          <input type="button" value="Add process" onclick="addprocess();" />
+          <input type="button" value="Remove process" onclick="removeprocess();" />
+      <div>
+        </div>    
+          <input type="button" value="Generate Gantt chart" onclick="gengantt();" />
+          <input type="button" value="Recalculate Turnaround time" onclick="calcturntime();">
+          <br/><br/>
+          <div>
+            <p>
+              Total execution time: <strong id="timer"></strong> sec
+              </p>
+          </div>
+          <chart>
+          </chart>
+</body>
+</html>
